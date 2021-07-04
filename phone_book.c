@@ -101,7 +101,7 @@ void free_entries(entry *p) {
     free(tmp);
     p=p->next;
   }
-  printf("Memory is not being freed. This needs to be fixed!\n");  
+  //printf("Memory is not being freed. This needs to be fixed!\n");  
 }
 
 void print_usage(char *message, char *progname) {

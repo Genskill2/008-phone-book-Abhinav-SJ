@@ -61,8 +61,19 @@ int main(int argc, char *argv[]) {
     list(fp);
     fclose(fp);
     exit(0);
-  } else if (strcmp(argv[1], "search") == 0) {  /* Handle search */
-    printf("NOT IMPLEMENTED!\n"); /* TBD  */
+  } else if (strcmp(argv[1], "search") == 0) {/* Handle search */
+      FILE *fp= open_db_file();
+      char *name = argv[2];
+      int val=search(fp, name);
+      if(!val)
+      {
+        printf("no match\n");
+        fclose(fp);
+        exit(1);
+      }
+      fclose(fp);
+      printf("%d",val);
+    //printf("NOT IMPLEMENTED!\n"); /* TBD  */
   } else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
     if (argc != 3) {
       print_usage("Improper arguments for delete", argv[0]);
@@ -222,6 +233,10 @@ int delete(FILE *db_file, char *name) {
 
       /* TBD */
     }
+  }
+  int search(FILE *db_file, char *name)
+  {
+    
   }
   write_all_entries(base);
   free_entries(base);

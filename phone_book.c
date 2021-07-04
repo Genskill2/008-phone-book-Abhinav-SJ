@@ -94,6 +94,13 @@ FILE *open_db_file() {
   
 void free_entries(entry *p) {
   /* TBD */
+  struct entry* tmp;
+  while(p!=NULL)
+  {
+    tmp=p;
+    free(tmp);
+    p=p->next;
+  }
   printf("Memory is not being freed. This needs to be fixed!\n");  
 }
 
@@ -178,10 +185,13 @@ void add(char *name, char *phone) {
 void list(FILE *db_file) {
   entry *p = load_entries(db_file);
   entry *base = p;
+  int count=0;
   while (p!=NULL) {
     printf("%-20s : %10s\n", p->name, p->phone);
     p=p->next;
+    count++;
   }
+  printf("%d",count);
   /* TBD print total count */
   free_entries(base);
 }

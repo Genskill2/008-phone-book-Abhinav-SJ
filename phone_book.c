@@ -216,7 +216,7 @@ int delete(FILE *db_file, char *name) {
   int deleted = 0;
   while (p!=NULL) {
     if (strcmp(p->name, name) == 0) {
-      struct entry* tmp;
+      entry* tmp;
       tmp=p;
       free(tmp);
       p=p->next;

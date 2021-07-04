@@ -234,8 +234,13 @@ int delete(FILE *db_file, char *name) {
       /* TBD */
     }
   }
-  int search(FILE *db_file, char *name)
-  {
+  write_all_entries(base);
+  free_entries(base);
+  return deleted;
+}
+
+int search(FILE *db_file, char *name)
+{
     entry *p = load_entries(db_file);
     while(p!=NULL)
     {
@@ -246,8 +251,4 @@ int delete(FILE *db_file, char *name) {
       }
     }
     return 0;
-  }
-  write_all_entries(base);
-  free_entries(base);
-  return deleted;
 }

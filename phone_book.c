@@ -73,6 +73,7 @@ int main(int argc, char *argv[]) {
       }
       fclose(fp);
       printf("%d",val);
+      exit(0);
     //printf("NOT IMPLEMENTED!\n"); /* TBD  */
   } else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
     if (argc != 3) {

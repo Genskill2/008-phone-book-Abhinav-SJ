@@ -236,7 +236,15 @@ int delete(FILE *db_file, char *name) {
   }
   int search(FILE *db_file, char *name)
   {
-    
+    entry *p = load_entries(db_file);
+    while(p!=NULL)
+    {
+      if(strcmp(p->name,name)==0)
+      {
+        int val=p->phone;
+        return val;
+      }
+    }
   }
   write_all_entries(base);
   free_entries(base);

@@ -105,7 +105,7 @@ FILE *open_db_file() {
   
 void free_entries(entry *p) {
   /* TBD */
-  struct entry* tmp;
+  entry* tmp;
   while(p!=NULL)
   {
     tmp=p;
@@ -241,10 +241,11 @@ int delete(FILE *db_file, char *name) {
     {
       if(strcmp(p->name,name)==0)
       {
-        int val=p->phone;
-        return val;
+        char* phone = p->phone;
+        return atoi(phone);
       }
     }
+    return 0;
   }
   write_all_entries(base);
   free_entries(base);

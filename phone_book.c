@@ -197,13 +197,13 @@ void add(char *name, char *phone) {
 void list(FILE *db_file) {
   entry *p = load_entries(db_file);
   entry *base = p;
-  int count=0;
+  int count=1;
   while (p!=NULL) {
     printf("%-20s : %10s\n", p->name, p->phone);
     p=p->next;
     count++;
   }
-  printf("%d",count);
+  printf("Total entries:%d",count);
   /* TBD print total count */
   free_entries(base);
 }

@@ -203,7 +203,7 @@ void list(FILE *db_file) {
     printf("%-20s : %10s\n", p->name, p->phone);
     p=p->next;
   }
-  printf("Total entries : %d",count);
+  printf("Total entries : %d\n",count);
   /* TBD print total count */
   free_entries(base);
 }
@@ -221,6 +221,7 @@ int delete(FILE *db_file, char *name) {
       tmp=p;
       free(tmp);
       p=p->next;
+      deleted = 1;
       /* Matching node found. Delete it from the linked list.
          Deletion from a linked list like this
    

@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
       FILE *fp= open_db_file();
       char *name = argv[2];
       int val=search(fp, name);
-      if(!val)
+      if(val == -1)
       {
         printf("no match\n");
         fclose(fp);
@@ -110,8 +110,8 @@ void free_entries(entry *p) {
   while(p!=NULL)
   {
     tmp=p;
-    free(tmp);
     p=p->next;
+    free(tmp);
   }
   //printf("Memory is not being freed. This needs to be fixed!\n");  
 }
@@ -251,5 +251,5 @@ int search(FILE *db_file, char *name)
         return atoi(phone);
       }
     }
-    return 0;
+    return -1;
 }

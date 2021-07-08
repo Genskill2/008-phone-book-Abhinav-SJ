@@ -72,8 +72,8 @@ int main(int argc, char *argv[]) {
         fclose(fp);
         exit(1);
       }
+      printf("%ld\n",v);
       fclose(fp);
-      printf("%ld",v);
       exit(0);
       
     //printf("NOT IMPLEMENTED!\n"); /* TBD  */

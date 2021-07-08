@@ -64,15 +64,16 @@ int main(int argc, char *argv[]) {
   } else if (strcmp(argv[1], "search") == 0) {/* Handle search */
       FILE *fp= open_db_file();
       char *name = argv[2];
-      int val;
-      val=search(fp, name);
-      if(!val)
+      long v;
+      v=search(fp, name);
+      if(!v)
       {
+        printf("no match\n");
         fclose(fp);
         exit(1);
       }
       fclose(fp);
-      printf("%d",val);
+      printf("%d",v);
       exit(0);
       
     //printf("NOT IMPLEMENTED!\n"); /* TBD  */
@@ -246,15 +247,16 @@ int delete(FILE *db_file, char *name) {
 int search(FILE *db_file, char *name)
 {
     char* phone;
+    int val=0;
     entry *p = load_entries(db_file);
     while(p!=NULL)
     {
       if(strcmp(p->name,name)==0)
       {
         phone = p->phone;
-        return atoi(phone);
+        val = atoi(phone);
+        break;
       }
     }
-    printf("no  match");
-    return 0;
+    return val;
 }

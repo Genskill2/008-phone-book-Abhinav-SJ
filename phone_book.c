@@ -252,7 +252,7 @@ int search(FILE *db_file, char *name)
       if(strcmp(p->name,name)==0)
       {
         phone = p->phone;
-        return (atoi(phone));
+        return atoi(phone);
       }
     }
     return 1;

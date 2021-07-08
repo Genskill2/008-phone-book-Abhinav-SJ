@@ -255,6 +255,6 @@ int search(FILE *db_file, char *name)
         return atoi(phone);
       }
     }
-    printf("no match");
+    printf("no  match");
     return 1;
 }

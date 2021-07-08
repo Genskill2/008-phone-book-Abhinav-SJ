@@ -64,14 +64,14 @@ int main(int argc, char *argv[]) {
   } else if (strcmp(argv[1], "search") == 0) {/* Handle search */
       FILE *fp= open_db_file();
       char *name = argv[2];
-      int val=search(fp, name);
+      int val;
+      val=search(fp, name);
       if(val != 1)
       {
         fclose(fp);
         printf("%d",val);
         exit(0);
       }
-      printf("no match");
       fclose(fp);
       exit(1);
       
@@ -255,5 +255,6 @@ int search(FILE *db_file, char *name)
         return atoi(phone);
       }
     }
+    printf("no match");
     return 1;
 }

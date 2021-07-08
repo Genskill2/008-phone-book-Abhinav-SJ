@@ -245,13 +245,14 @@ int delete(FILE *db_file, char *name) {
 
 int search(FILE *db_file, char *name)
 {
+    char* phone;
     entry *p = load_entries(db_file);
     while(p!=NULL)
     {
       if(strcmp(p->name,name)==0)
       {
-        char* phone = p->phone;
-        return atoi(phone);
+        phone = p->phone;
+        return (atoi(phone));
       }
     }
     return 1;

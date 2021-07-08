@@ -65,15 +65,16 @@ int main(int argc, char *argv[]) {
       FILE *fp= open_db_file();
       char *name = argv[2];
       int val=search(fp, name);
-      if(val == 1)
+      if(val != 1)
       {
-        printf("no match");
         fclose(fp);
-        exit(1);
+        printf("%d",val);
+        exit(0);
       }
+      printf("no match");
       fclose(fp);
-      printf("%d",val);
-      exit(0);
+      exit(1);
+      
     //printf("NOT IMPLEMENTED!\n"); /* TBD  */
   } else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
     if (argc != 3) {

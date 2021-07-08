@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
       FILE *fp= open_db_file();
       char *name = argv[2];
       int val=search(fp, name);
-      if(val == -1)
+      if(val == 1)
       {
         printf("no match\n");
         fclose(fp);
@@ -253,5 +253,5 @@ int search(FILE *db_file, char *name)
         return atoi(phone);
       }
     }
-    return -1;
+    return 1;
 }
